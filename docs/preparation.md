@@ -82,3 +82,14 @@ Région d’origine
 Description du tissu, des broderies, des couleurs
 
 Contexte culturel (quand et pourquoi on le porte)
+
+# COULEURS A UTILISER
+- BLANC A 60%
+- BLUE A 30%
+- AUTRE COULEUR A 10%
+
+# SITE DE REFERENCE 
+
+- [SITE WEB  FRANCE ](https://www.france.fr/fr/)
+- [SITE WEB VISIT DUBAI ](https://www.visitdubai.com/en)
+- [SITE WEB VISITE JAPAN ](https://www.japan.travel/fr/ca/)
