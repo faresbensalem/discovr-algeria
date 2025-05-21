@@ -1,0 +1,64 @@
+"use client";
+
+import { useState } from "react";
+import { GiHamburgerMenu } from "react-icons/gi";
+import { CiFacebook, CiInstagram } from "react-icons/ci";
+import { FaTiktok } from "react-icons/fa";
+
+export default function Header() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  return (
+    <header>
+      <nav className="bg-white shadow-md">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="flex justify-between items-center h-16">
+            {/* Logo */}
+            <div className="flex-shrink-0">
+              <a href="#" className="text-gray-800 font-bold text-xl">discovr algeria</a>
+            </div>
+
+            {/* Burger Icon */}
+            <div className="md:hidden text-2xl text-gray-700 cursor-pointer" onClick={() => setMenuOpen(!menuOpen)}>
+              <GiHamburgerMenu />
+            </div>
+
+            {/* Links (desktop) */}
+            <div className="hidden md:flex flex-1 justify-center">
+              <ul className="flex space-x-8">
+                <li><a href="#" className="text-gray-500 hover:text-gray-700 transition">Villes</a></li>
+                <li><a href="#" className="text-gray-500 hover:text-gray-700 transition">Activités</a></li>
+                <li><a href="#" className="text-gray-500 hover:text-gray-700 transition">Culture DZ </a></li>
+                <li><a href="#" className="text-gray-500 hover:text-gray-700 transition">Contact</a></li>
+              </ul>
+            </div>
+
+            {/* Social Icons (desktop only) */}
+            <div className="hidden md:flex space-x-4 text-2xl text-gray-600">
+              <CiFacebook className="hover:text-blue-600 transition" />
+              <CiInstagram className="hover:text-pink-500 transition" />
+              <FaTiktok className="hover:text-black transition" />
+            </div>
+          </div>
+
+          {/* Mobile Menu */}
+          {menuOpen && (
+            <div className="md:hidden mt-4">
+              <ul className="flex flex-col space-y-2 text-center">
+                <li><a href="#" className="block text-gray-600 hover:text-gray-800 transition">Villes</a></li>
+                <li><a href="#" className="block text-gray-600 hover:text-gray-800 transition">Activités</a></li>
+                <li><a href="#" className="block text-gray-600 hover:text-gray-800 transition">Culture DZ </a></li>
+                <li><a href="#" className="block text-gray-600 hover:text-gray-800 transition">Contact</a></li>
+                <div className="flex justify-center space-x-4 pt-2 text-2xl text-gray-600">
+                  <CiFacebook className="hover:text-blue-600 transition" />
+                  <CiInstagram className="hover:text-pink-500 transition" />
+                  <FaTiktok className="hover:text-black transition" />
+                </div>
+              </ul>
+            </div>
+          )}
+        </div>
+      </nav>
+    </header>
+  );
+}
