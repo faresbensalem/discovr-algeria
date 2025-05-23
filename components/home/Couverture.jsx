@@ -35,18 +35,18 @@ export default function Couverture() {
           style={{ paddingBottom: "4rem", transform: "translateY(-180px)" }}
         >
           <p
-            className="text-white uppercase drop-shadow-2xl mb-6"
+            className="text-white uppercase drop-shadow-2xl mb-6 text-center"
             style={{
               fontFamily: "'FuturaLight', sans-serif",
               fontWeight: 700,
-              fontSize: "7rem",
-              letterSpacing: "0.6em",
+              fontSize: "clamp(2rem, 10vw, 7rem)",
+              letterSpacing: "clamp(0.2em, 2vw, 0.6em)",
             }}
           >
             ALGERIA
           </p>
           <div style={{ transform: "translateY(20px)" }}>
-            <button className="bg-gradient-to-r from-blue-500 to-indigo-600 text-white px-10 py-4 rounded-full text-xl shadow-lg hover:scale-105 transform transition">
+            <button className="bg-gradient-to-r from-blue-500 to-indigo-600 text-white px-6 md:px-10 py-3 md:py-4 rounded-full text-base md:text-xl shadow-lg hover:scale-105 transform transition">
               LANCEZ LA DÉCOUVERTE
             </button>
           </div>
