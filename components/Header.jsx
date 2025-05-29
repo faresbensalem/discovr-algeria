@@ -5,7 +5,7 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { CiFacebook, CiInstagram } from "react-icons/ci";
 import { FaTiktok } from "react-icons/fa";
 
-export default function Header() {
+export default function Header({ changePage }) {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
@@ -15,21 +15,43 @@ export default function Header() {
           <div className="flex justify-between items-center h-16">
             {/* Logo */}
             <div className="flex-shrink-0">
-              <a href="#" className="text-gray-800 font-bold text-xl">discovr algeria</a>
+              <button onClick={() => changePage("accueil")} className="text-gray-800 font-bold text-xl">
+                discovr algeria
+              </button>
             </div>
 
             {/* Burger Icon */}
-            <div className="md:hidden text-2xl text-gray-700 cursor-pointer" onClick={() => setMenuOpen(!menuOpen)}>
+            <div
+              className="md:hidden text-2xl text-gray-700 cursor-pointer"
+              onClick={() => setMenuOpen(!menuOpen)}
+            >
               <GiHamburgerMenu />
             </div>
 
             {/* Links (desktop) */}
             <div className="hidden md:flex flex-1 justify-center">
               <ul className="flex space-x-8">
-                <li><a href="#" className="text-gray-500 hover:text-gray-700 transition">Villes</a></li>
-                <li><a href="#" className="text-gray-500 hover:text-gray-700 transition">Activités</a></li>
-                <li><a href="#" className="text-gray-500 hover:text-gray-700 transition">Culture DZ </a></li>
-                <li><a href="#" className="text-gray-500 hover:text-gray-700 transition">Contact</a></li>
+                <li>
+                  <button onClick={() => changePage("villes")} className="text-gray-500 hover:text-gray-700 transition">
+                    Villes
+                  </button>
+                </li>
+                  <li>
+                  <button onClick={() => changePage("culture")} className="text-gray-500 hover:text-gray-700 transition">
+                    Culture DZ
+                  </button>
+                </li>
+                <li>
+                  <button onClick={() => changePage("activites")} className="text-gray-500 hover:text-gray-700 transition">
+                    Activités
+                  </button>
+                </li>
+              
+                <li>
+                  <button onClick={() => changePage("contact")} className="text-gray-500 hover:text-gray-700 transition">
+                    Contact
+                  </button>
+                </li>
               </ul>
             </div>
 
@@ -45,10 +67,26 @@ export default function Header() {
           {menuOpen && (
             <div className="md:hidden mt-4">
               <ul className="flex flex-col space-y-2 text-center">
-                <li><a href="#" className="block text-gray-600 hover:text-gray-800 transition">Villes</a></li>
-                <li><a href="#" className="block text-gray-600 hover:text-gray-800 transition">Activités</a></li>
-                <li><a href="#" className="block text-gray-600 hover:text-gray-800 transition">Culture DZ </a></li>
-                <li><a href="#" className="block text-gray-600 hover:text-gray-800 transition">Contact</a></li>
+                <li>
+                  <button onClick={() => changePage("villes")} className="block text-gray-600 hover:text-gray-800 transition">
+                    Villes
+                  </button>
+                </li>
+                <li>
+                  <button onClick={() => changePage("activites")} className="block text-gray-600 hover:text-gray-800 transition">
+                    Activités
+                  </button>
+                </li>
+                <li>
+                  <button onClick={() => changePage("culture")} className="block text-gray-600 hover:text-gray-800 transition">
+                    Culture DZ
+                  </button>
+                </li>
+                <li>
+                  <button onClick={() => changePage("contact")} className="block text-gray-600 hover:text-gray-800 transition">
+                    Contact
+                  </button>
+                </li>
                 <div className="flex justify-center space-x-4 pt-2 text-2xl text-gray-600">
                   <CiFacebook className="hover:text-blue-600 transition" />
                   <CiInstagram className="hover:text-pink-500 transition" />
@@ -60,5 +98,5 @@ export default function Header() {
         </div>
       </nav>
     </header>
-  );
+  );
 }
