@@ -16,7 +16,7 @@ export default function Header({ changePage }) {
             {/* Logo */}
             <div className="flex-shrink-0">
               <button onClick={() => changePage("accueil")} className="text-gray-800 font-bold text-xl">
-                discovr algeria
+                Discover Algeria
               </button>
             </div>
 
@@ -36,17 +36,16 @@ export default function Header({ changePage }) {
                     Villes
                   </button>
                 </li>
-                  <li>
+                <li>
                   <button onClick={() => changePage("culture")} className="text-gray-500 hover:text-gray-700 transition">
                     Culture DZ
                   </button>
                 </li>
                 <li>
-                  <button onClick={() => changePage("activites")} className="text-gray-500 hover:text-gray-700 transition">
+                  <button onClick={() => changePage("activite")} className="text-gray-500 hover:text-gray-700 transition">
                     Activités
                   </button>
                 </li>
-              
                 <li>
                   <button onClick={() => changePage("contact")} className="text-gray-500 hover:text-gray-700 transition">
                     Contact
@@ -73,7 +72,7 @@ export default function Header({ changePage }) {
                   </button>
                 </li>
                 <li>
-                  <button onClick={() => changePage("activites")} className="block text-gray-600 hover:text-gray-800 transition">
+                  <button onClick={() => changePage("activite")} className="block text-gray-600 hover:text-gray-800 transition">
                     Activités
                   </button>
                 </li>
@@ -98,5 +97,5 @@ export default function Header({ changePage }) {
         </div>
       </nav>
     </header>
-  );
+  );
 }
