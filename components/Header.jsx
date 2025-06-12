@@ -1,11 +1,12 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { CiFacebook, CiInstagram } from "react-icons/ci";
 import { FaTiktok } from "react-icons/fa";
 
-export default function Header({ changePage }) {
+export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
@@ -15,9 +16,9 @@ export default function Header({ changePage }) {
           <div className="flex justify-between items-center h-16">
             {/* Logo */}
             <div className="flex-shrink-0">
-              <button onClick={() => changePage("accueil")} className="text-gray-800 font-bold text-xl">
+              <Link href="/" className="text-gray-800 font-bold text-xl">
                 Discover Algeria
-              </button>
+              </Link>
             </div>
 
             {/* Burger Icon */}
@@ -32,24 +33,24 @@ export default function Header({ changePage }) {
             <div className="hidden md:flex flex-1 justify-center">
               <ul className="flex space-x-8">
                 <li>
-                  <button onClick={() => changePage("villes")} className="text-gray-500 hover:text-gray-700 transition">
+                  <Link href="/ville" className="text-gray-500 hover:text-gray-700 transition">
                     Villes
-                  </button>
+                  </Link>
                 </li>
                 <li>
-                  <button onClick={() => changePage("culture")} className="text-gray-500 hover:text-gray-700 transition">
+                  <Link href="/culture" className="text-gray-500 hover:text-gray-700 transition">
                     Culture DZ
-                  </button>
+                  </Link>
                 </li>
                 <li>
-                  <button onClick={() => changePage("activite")} className="text-gray-500 hover:text-gray-700 transition">
+                  <Link href="/active" className="text-gray-500 hover:text-gray-700 transition">
                     Activités
-                  </button>
+                  </Link>
                 </li>
                 <li>
-                  <button onClick={() => changePage("contact")} className="text-gray-500 hover:text-gray-700 transition">
+                  <Link href="/" className="text-gray-500 hover:text-gray-700 transition">
                     Contact
-                  </button>
+                  </Link>
                 </li>
               </ul>
             </div>
@@ -67,30 +68,30 @@ export default function Header({ changePage }) {
             <div className="md:hidden mt-4">
               <ul className="flex flex-col space-y-2 text-center">
                 <li>
-                  <button onClick={() => changePage("villes")} className="block text-gray-600 hover:text-gray-800 transition">
-                    Villes
-                  </button>
+                  <Link href="/ville" className="block text-gray-600 hover:text-gray-800 transition">
+                    Ville
+                  </Link>
                 </li>
                 <li>
-                  <button onClick={() => changePage("activite")} className="block text-gray-600 hover:text-gray-800 transition">
+                  <Link href="/active" className="block text-gray-600 hover:text-gray-800 transition">
                     Activités
-                  </button>
+                  </Link>
                 </li>
                 <li>
-                  <button onClick={() => changePage("culture")} className="block text-gray-600 hover:text-gray-800 transition">
+                  <Link href="/culture" className="block text-gray-600 hover:text-gray-800 transition">
                     Culture DZ
-                  </button>
+                  </Link>
                 </li>
                 <li>
-                  <button onClick={() => changePage("contact")} className="block text-gray-600 hover:text-gray-800 transition">
-                    Contact
-                  </button>
+                  <Link href="/" className="block text-gray-600 hover:text-gray-800 transition">
+                    contact
+                  </Link>
                 </li>
-                <div className="flex justify-center space-x-4 pt-2 text-2xl text-gray-600">
-                  <CiFacebook className="hover:text-blue-600 transition" />
-                  <CiInstagram className="hover:text-pink-500 transition" />
-                  <FaTiktok className="hover:text-black transition" />
-                </div>
+            
+              
+            
+              
+            
               </ul>
             </div>
           )}

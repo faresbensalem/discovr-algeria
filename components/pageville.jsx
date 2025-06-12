@@ -1,3 +1,5 @@
+"use client"; // 👈 OBLIGATOIRE pour activer les hooks React côté client
+
 import { useEffect } from "react";
 import Image from "next/image";
 import carte from "@/public/img/cartedemi.webp";
@@ -26,13 +28,13 @@ export default function Villedz() {
 
   const montagneVilles = [
     { img: montagne1, nom: "Tizi Ouzou" },
-    { img: montagne2, nom: "ain beida" },
+    { img: montagne2, nom: "Aïn Beïda" },
     { img: montagne3, nom: "Sétif" },
   ];
 
   const desertVilles = [
     { img: desert1, nom: "Tamanrasset" },
-    { img: desert2, nom: "Hogar" },
+    { img: desert2, nom: "Hoggar" },
     { img: desert3, nom: "Ghardaïa" },
   ];
 
