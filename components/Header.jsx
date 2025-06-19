@@ -48,7 +48,7 @@ export default function Header() {
                   </Link>
                 </li>
                 <li>
-                  <Link href="/" className="text-gray-500 hover:text-gray-700 transition">
+                  <Link href="/contact" className="text-gray-500 hover:text-gray-700 transition">
                     Contact
                   </Link>
                 </li>
@@ -83,7 +83,7 @@ export default function Header() {
                   </Link>
                 </li>
                 <li>
-                  <Link href="/" className="block text-gray-600 hover:text-gray-800 transition">
+                  <Link href="/contact" className="block text-gray-600 hover:text-gray-800 transition">
                     contact
                   </Link>
                 </li>
