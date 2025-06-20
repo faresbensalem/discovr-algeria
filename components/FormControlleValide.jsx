@@ -25,7 +25,7 @@ export default function FormHook() {
 
     emailjs.send(
       'service_9mz23yl', // Ton service ID
-      'template_ahth8yl', // Ton template ID
+      'template_0l2yc6b', // Ton template ID
       templateParams,
       'yNtMcyo-OBJjTU4kS' // Ton USER PUBLIC KEY
     ).then(
