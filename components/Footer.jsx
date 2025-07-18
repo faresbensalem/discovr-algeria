@@ -1,5 +1,6 @@
 import { CiFacebook, CiInstagram } from "react-icons/ci";
 import { FaTiktok } from "react-icons/fa";
+
 export default function Footer() {
     return (
          <footer className="bg-gray-900 text-gray-300 py-12">
@@ -44,7 +45,8 @@ export default function Footer() {
         </div>
 
         <div className="mt-12 border-t border-gray-700 pt-6 text-center text-gray-500 text-sm">
-          &copy; {new Date().getFullYear()} discovr algeria. Tous droits réservés.
+<p>&copy; {new Date().getFullYear()} discovr algeria. Tous droits réservés.</p> 
+              
         </div>
       </div>
     </footer>

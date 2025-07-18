@@ -6,22 +6,15 @@ import blue from "@/public/img/blue.webp";
 import green from "@/public/img/green.webp";
 import red from "@/public/img/red.webp";
 import white from "@/public/img/white.webp";
+import { useMyContext } from "@/Provider/MyContextProvider";
 
 export default function Algeria() {
+  const { theme } = useMyContext();
+
   const images = [
     { src: green, alt: "green", label: "Algeria is green", color: "green" },
     { src: red, alt: "red", label: "Algeria is red", color: "red" },
     { src: white, alt: "white", label: "Algeria is white", color: "white" },
-
-
-
-
-
-
-
-
-
-    
     { src: blue, alt: "blue", label: "Algeria is blue", color: "blue" },
   ];
 
@@ -73,7 +66,7 @@ export default function Algeria() {
   const colorClasses = {
     green: "text-green-600",
     red: "text-red-400",
-    white: "text-gray-800",
+    white: theme === "light" ? "text-gray-800" : "text-gray-200",
     blue: "text-blue-400",
   };
 
@@ -90,12 +83,17 @@ export default function Algeria() {
     );
   };
 
+  // Classes dynamiques pour le dark mode
+  const sectionBg = theme === "light" ? "bg-white" : "bg-gray-900";
+  const mainTitle = theme === "light" ? "text-blue-600" : "text-blue-300";
+  const labelTitle = theme === "light" ? "text-black" : "text-white";
+
   return (
-    <section className="flex flex-col bg-white items-center justify-center py-10 px-4 w-full relative h-[750px] overflow-x-hidden">
-      <h1 className="text-4xl font-bold text-blue-600">
+    <section className={`flex flex-col ${sectionBg} items-center justify-center py-10 px-4 w-full relative h-[750px] overflow-x-hidden`}>
+      <h1 className={`text-4xl font-bold ${mainTitle}`}>
         Découvrez les couleurs de l’Algérie
       </h1>
-      <h1 className="text-center text-4xl font-semibold mb-8 text-black">
+      <h1 className={`text-center text-4xl font-semibold mb-8 ${labelTitle}`}>
         {renderLabel(images[current].label, images[current].color)}
       </h1>
       <div className="relative w-full max-w-7xl h-[450px] overflow-x-hidden">

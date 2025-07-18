@@ -1,8 +1,11 @@
 "use client";
 
 import { useEffect } from "react";
+import { useMyContext } from "@/Provider/MyContextProvider";
 
 export default function Couverture() {
+  const { theme } = useMyContext();
+
   useEffect(() => {
     const style = document.createElement("style");
     style.textContent = `
@@ -17,8 +20,16 @@ export default function Couverture() {
     document.head.appendChild(style);
   }, []);
 
+  // Classes dynamiques selon le thème
+  const bgColor = theme === "light" ? "bg-white" : "bg-gray-900";
+  const overlayText = theme === "light" ? "text-white" : "text-gray-200";
+  const buttonBg = theme === "light"
+    ? "bg-gradient-to-r from-blue-500 to-indigo-600"
+    : "bg-gradient-to-r from-blue-800 to-indigo-900";
+  const buttonText = "text-white";
+
   return (
-    <div className="w-full h-screen bg-white flex justify-center items-center">
+    <div className={`w-full h-screen ${bgColor} flex justify-center items-center`}>
       <div className="relative w-[90%] max-w-7xl h-full rounded-xl overflow-hidden">
         <video
           className="absolute inset-0 w-full h-full object-cover"
@@ -35,7 +46,7 @@ export default function Couverture() {
           style={{ paddingBottom: "4rem", transform: "translateY(-180px)" }}
         >
           <p
-            className="text-white uppercase drop-shadow-2xl mb-6 text-center"
+            className={`uppercase drop-shadow-2xl mb-6 text-center ${overlayText}`}
             style={{
               fontFamily: "'FuturaLight', sans-serif",
               fontWeight: 700,
@@ -46,7 +57,7 @@ export default function Couverture() {
             ALGERIA
           </p>
           <div style={{ transform: "translateY(20px)" }}>
-            <button className="bg-gradient-to-r from-blue-500 to-indigo-600 text-white px-6 md:px-10 py-3 md:py-4 rounded-full text-base md:text-xl shadow-lg hover:scale-105 transform transition">
+            <button className={`${buttonBg} ${buttonText} px-6 md:px-10 py-3 md:py-4 rounded-full text-base md:text-xl shadow-lg hover:scale-105 transform transition`}>
               LANCEZ LA DÉCOUVERTE
             </button>
           </div>

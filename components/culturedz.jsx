@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { useMyContext } from "@/Provider/MyContextProvider";
 
 import gastro from "@/public/img/gastro.webp";
 import gastro1 from "@/public/img/gastro1.webp";
@@ -18,6 +19,8 @@ import fr from "@/public/img/fr.webp";
 import fr2 from "@/public/img/fr2.webp";
 
 export default function Culturedz() {
+  const { theme } = useMyContext();
+
   useEffect(() => {
     AOS.init({ duration: 1000, once: true });
   }, []);
@@ -27,11 +30,18 @@ export default function Culturedz() {
   const archiHaussmann = [fr, fr2];
   const [hoveredIndex, setHoveredIndex] = useState(0);
 
+  // Classes dynamiques selon le thème
+  const sectionBg = theme === "light" ? "bg-white" : "bg-gray-900";
+  const cuisineTitle = theme === "light" ? "text-red-600" : "text-red-300";
+  const archiTitle = theme === "light" ? "text-blue-700" : "text-blue-300";
+  const cardText = theme === "light" ? "text-gray-700" : "text-gray-200";
+  const cardBg = theme === "light" ? "bg-white" : "bg-gray-800";
+
   return (
-    <section className="max-w-6xl mx-auto px-6 py-12 space-y-24">
+    <section className={`max-w-10xl mx-auto px-6 py-12 space-y-24 ${sectionBg}`}>
       {/* Cuisine Traditionnelle */}
       <section data-aos="fade-up">
-        <h2 className="text-3xl font-bold text-red-600 mb-8 text-center">
+        <h2 className={`text-3xl font-bold mb-8 text-center ${cuisineTitle}`}>
           Cuisine extraordinaire
         </h2>
         <div className="flex justify-center items-center gap-2 w-full max-w-6xl mx-auto h-64 overflow-hidden">
@@ -56,14 +66,14 @@ export default function Culturedz() {
 
       {/* Architecture */}
       <section data-aos="fade-up">
-        <h2 className="text-3xl font-bold text-blue-700 mb-8 text-center">
+        <h2 className={`text-3xl font-bold mb-8 text-center ${archiTitle}`}>
           Beauté architecturale
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
           {/* Style Ottoman */}
-          <div>
+          <div className={`${cardBg} rounded-xl p-4 shadow`}>
             <h3 className="text-2xl font-semibold text-center mb-4">Style Ottoman</h3>
-            <p className="text-center text-gray-700 mb-6 px-2">Plongez dans l’élégance des arcs finement sculptés, des dômes imposants et des couleurs chaudes, témoignant d’un riche héritage impérial.</p>
+            <p className={`text-center mb-6 px-2 ${cardText}`}>Plongez dans l’élégance des arcs finement sculptés, des dômes imposants et des couleurs chaudes, témoignant d’un riche héritage impérial.</p>
             <div className="grid grid-cols-3 gap-4 h-48 md:h-64">
               {archiOttoman.map((img, i) => (
                 <div key={i} className="relative rounded-lg overflow-hidden shadow-lg">
@@ -79,9 +89,9 @@ export default function Culturedz() {
           </div>
 
           {/* Style Haussmannien */}
-          <div>
+          <div className={`${cardBg} rounded-xl p-4 shadow`}>
             <h3 className="text-2xl font-semibold text-center mb-4">Style Haussmannien</h3>
-            <p className="text-center text-gray-700 mb-6 px-2">Façades nobles, lignes symétriques et balcons en fer forgé : l’architecture haussmannienne incarne le charme et le prestige de l’élégance urbaine.</p>
+            <p className={`text-center mb-6 px-2 ${cardText}`}>Façades nobles, lignes symétriques et balcons en fer forgé : l’architecture haussmannienne incarne le charme et le prestige de l’élégance urbaine.</p>
             <div className="grid grid-cols-2 gap-4 h-48 md:h-64">
               {archiHaussmann.map((img, i) => (
                 <div key={i} className="relative rounded-lg overflow-hidden shadow-lg">

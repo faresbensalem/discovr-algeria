@@ -1,7 +1,8 @@
-"use client"; // 👈 OBLIGATOIRE pour activer les hooks React côté client
+"use client";
 
 import { useEffect } from "react";
 import Image from "next/image";
+import { useMyContext } from "@/Provider/MyContextProvider";
 import carte from "@/public/img/cartedemi.webp";
 import mer1 from "@/public/img/oran2.webp";
 import mer3 from "@/public/img/blue.webp";
@@ -16,9 +17,21 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 
 export default function Villedz() {
+  const { theme } = useMyContext();
+
   useEffect(() => {
     AOS.init({ duration: 1000, once: true });
   }, []);
+
+  // Classes dynamiques inspirées de activpage.jsx
+  const bgGradient =
+    theme === "light"
+      ? "bg-gradient-to-br from-white to-blue-50"
+      : "bg-gradient-to-br from-gray-900 to-gray-800";
+  const titleColor = theme === "light" ? "text-blue-700" : "text-blue-300";
+  const sectionTitle = theme === "light" ? "text-gray-800" : "text-gray-100";
+  const cardBg = theme === "light" ? "bg-white" : "bg-gray-800";
+  const cardText = theme === "light" ? "text-gray-700" : "text-gray-200";
 
   const merVilles = [
     { img: mer3, nom: "Annaba" },
@@ -39,14 +52,14 @@ export default function Villedz() {
   ];
 
   return (
-    <section>
+    <div className={`min-h-screen w-full ${bgGradient} transition-colors duration-300`}>
       {/* Intro */}
-      <section className="flex flex-col md:flex-row items-center max-w-6xl mx-auto my-12 px-6 bg-gradient-to-r from-blue-50 via-white to-blue-50 rounded-lg shadow-lg overflow-hidden">
+      <section className="flex flex-col md:flex-row items-center max-w-6xl mx-auto my-0 px-6 rounded-lg shadow-lg overflow-hidden">
         <div className="md:w-1/2 flex flex-col justify-center items-start space-y-4 p-8">
-          <h1 className="text-blue-700 text-4xl md:text-5xl font-extrabold drop-shadow-lg">
+          <h1 className={`text-4xl md:text-5xl font-extrabold drop-shadow-lg ${titleColor}`}>
             Plusieurs villes<br />Plusieurs cultures
           </h1>
-          <p className="text-gray-700 text-lg md:text-xl max-w-md leading-relaxed">
+          <p className={`text-lg md:text-xl max-w-md leading-relaxed ${cardText}`}>
             Découvrez la richesse et la diversité de nos villes, où chaque culture
             apporte son histoire unique et vibrante.
           </p>
@@ -66,12 +79,12 @@ export default function Villedz() {
 
       {/* Mer */}
       <section className="max-w-6xl mx-auto my-16 px-6" data-aos="fade-up">
-        <h2 className="text-3xl md:text-4xl font-bold text-center text-blue-700 mb-10">
+        <h2 className={`text-3xl md:text-4xl font-bold text-center mb-10 ${sectionTitle}`}>
           Découvrez les villes de mer
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {merVilles.map((ville, index) => (
-            <div key={index} className="group relative overflow-hidden rounded-xl shadow-lg">
+            <div key={index} className={`group relative overflow-hidden rounded-xl shadow-lg ${cardBg}`}>
               <Image
                 src={ville.img}
                 alt={`Vue de ${ville.nom}`}
@@ -87,14 +100,14 @@ export default function Villedz() {
 
       {/* Montagne */}
       <section className="max-w-6xl mx-auto my-16 px-6" data-aos="fade-up">
-        <h2 className="text-3xl md:text-4xl font-bold text-center text-green-700 mb-10">
+        <h2 className={`text-3xl md:text-4xl font-bold text-center mb-10 ${sectionTitle}`}>
           Découvrez les villes de montagne
         </h2>
         <div className="grid grid-cols-3 gap-4 auto-rows-[200px]">
           {montagneVilles.map((ville, index) => (
             <div
               key={index}
-              className={`relative overflow-hidden rounded-xl shadow-lg ${
+              className={`relative overflow-hidden rounded-xl shadow-lg ${cardBg} ${
                 index === 1 ? "col-span-2 row-span-2" : ""
               }`}
             >
@@ -114,12 +127,12 @@ export default function Villedz() {
 
       {/* Désert */}
       <section className="max-w-6xl mx-auto my-16 px-6" data-aos="fade-up">
-        <h2 className="text-3xl md:text-4xl font-bold text-center text-yellow-700 mb-10">
+        <h2 className={`text-3xl md:text-4xl font-bold text-center mb-10 ${sectionTitle}`}>
           Découvrez les villes du désert
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {desertVilles.map((ville, index) => (
-            <div key={index} className="group relative overflow-hidden rounded-xl shadow-lg">
+            <div key={index} className={`group relative overflow-hidden rounded-xl shadow-lg ${cardBg}`}>
               <Image
                 src={ville.img}
                 alt={`Vue de ${ville.nom}`}
@@ -132,6 +145,6 @@ export default function Villedz() {
           ))}
         </div>
       </section>
-    </section>
+    </div>
   );
 }
