@@ -1,7 +1,7 @@
 {
-  "home": "Home",
-  "ville": "Cities",
-  "culture": "DZ Culture",
-  "active": "Activities",
-  "contact": "Contact"
+  "header.home": "discouvre algeria",
+  "header.ville": "Cities",
+  "header.culture": "DZ Culture",
+  "header.active": "Activities",
+  "header.contact": "Contact"
 }

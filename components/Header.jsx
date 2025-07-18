@@ -8,6 +8,7 @@ import { FaTiktok } from "react-icons/fa";
 import { useMyContext } from "@/Provider/MyContextProvider";
 import { FaMoon } from "react-icons/fa";
 import { IoMdSunny } from "react-icons/io";
+import "../i18next"; // ← ça lance la configuration i18n UNE FOIS dans tout le projet
 
 import i18next from "i18next";
 import { useTranslation } from "react-i18next";
@@ -15,7 +16,7 @@ import { useTranslation } from "react-i18next";
 export default function Header() {
  const { t: tHeader } = useTranslation("header");
 
-
+  console.log("Langue actuelle :", i18next.language);
   const [menuOpen, setMenuOpen] = useState(false);
   const { theme, toggleTheme } = useMyContext();
 
@@ -53,23 +54,23 @@ export default function Header() {
               <ul className="flex space-x-8">
                 <li>
                   <Link href="/ville" className={linkText}>
-                    Villes
+                {tHeader("header.ville")}
                   </Link>
                 </li>
                 <li>
                   <Link href="/culture" className={linkText}>
-                    Culture DZ
+                   {tHeader("header.culture")}
                   </Link>
                 </li>
                  
                 <li>
                   <Link href="/active" className={linkText}>
-                    Activités
+               {tHeader("header.active")}
                   </Link>
                 </li>
                 <li>
                   <Link href="/contact" className={linkText}>
-                    Contact
+                    {tHeader("header.contact")}
                   </Link>
                 </li>
               </ul>

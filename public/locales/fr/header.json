@@ -1,7 +1,7 @@
 {
-  "home": "Accueil",
-  "ville": "Villes",
-  "culture": "Dz Culture",
-  "active": "Activités",
-  "contact": "Contact"
+  "header.home": "decouvrire l'Algérie",
+  "header.ville": "Villes",
+  "header.culture": "Dz Culture",
+  "header.active": "Activités",
+  "header.contact": "Contact"
 }

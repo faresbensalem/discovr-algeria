@@ -3,6 +3,7 @@ import Footer from "@/components/Footer";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import i18next from "i18next";
+
 import MyContextProvider from "@/Provider/MyContextProvider"; // Ajouté
 
 const inter = Inter({ subsets: ["latin"] });
