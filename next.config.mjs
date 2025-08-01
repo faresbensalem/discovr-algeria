@@ -1,12 +1,19 @@
 /** @type {import('next').NextConfig} */
+
 const nextConfig = {
-  experimental: {
-    workerThreads: false,
-    cpus: 1
-  },
+
   images: {
-    unoptimized: true
-  }
+
+      unoptimized: true,
+
+  },
+
+  output: "export",
+
 };
 
-export default nextConfig;
+
+
+export default nextConfig
+
+

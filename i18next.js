@@ -20,6 +20,7 @@ i18n
     backend: {
       loadPath: "/locales/{{lng}}/{{ns}}.json",
     },
+    react: { useSuspense: false }, // Disable suspense for SSR compatibility
   });
 
 export default i18n;
