@@ -4,10 +4,9 @@ import { useState } from "react";
 import Link from "next/link";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { CiFacebook, CiInstagram } from "react-icons/ci";
-import { FaTiktok } from "react-icons/fa";
-import { useMyContext } from "@/Provider/MyContextProvider";
-import { FaMoon } from "react-icons/fa";
+import { FaTiktok, FaMoon } from "react-icons/fa";
 import { IoMdSunny } from "react-icons/io";
+import { useMyContext } from "@/Provider/MyContextProvider";
 import "../i18next"; // ← ça lance la configuration i18n UNE FOIS dans tout le projet
 
 import i18next from "i18next";
@@ -84,10 +83,13 @@ export default function Header() {
               <button
                 className="ml-auto mr-4 text-2xl cursor-pointer"
                 onClick={toggleTheme}
+                aria-label={theme === "light" ? "Activer le mode sombre" : "Activer le mode clair"}
               >
                 {theme === "light" ? <FaMoon /> : <IoMdSunny />}
               </button>
+              <label htmlFor="lang-select" className="sr-only">Choisir la langue</label>
              <select
+  id="lang-select"
   onChange={(e) => i18next.changeLanguage(e.target.value)}
   defaultValue={i18next.language}
   className={`ml-2 px-0 py-0 rounded border-none outline-none transition

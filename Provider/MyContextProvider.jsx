@@ -15,7 +15,7 @@ export default function MyContextProvider({ children }) {
 
     useEffect(() => {
         setTheme(localStorage.getItem("theme2") || "light");
-    });
+    }, []);
 
     const toggleTheme = () => {
         setTheme(theme === "light" ? "dark" : "light");

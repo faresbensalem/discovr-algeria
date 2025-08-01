@@ -6,6 +6,11 @@ import i18next from "i18next";
 
 import MyContextProvider from "@/Provider/MyContextProvider"; // Ajouté
 
+export const metadata = {
+  title: 'Discovr Algeria - Explorez l\'Algérie',
+  description: 'Découvrez l\'Algérie, ses villes, sa culture, ses activités et plus encore. Le guide ultime pour explorer l\'Algérie.',
+};
+
 const inter = Inter({ subsets: ["latin"] });
 
 export default function RootLayout({ children }) {
