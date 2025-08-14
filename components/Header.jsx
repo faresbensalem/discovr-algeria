@@ -9,8 +9,10 @@ import { IoMdSunny } from "react-icons/io";
 import { useMyContext } from "@/Provider/MyContextProvider";
 import "../i18next"; // ← ça lance la configuration i18n UNE FOIS dans tout le projet
 
+
 import i18next from "i18next";
 import { useTranslation } from "react-i18next";
+
 
 export default function Header() {
  const { t: tHeader } = useTranslation("header");
@@ -52,10 +54,12 @@ export default function Header() {
             <div className="hidden md:flex flex-1 justify-center">
               <ul className="flex space-x-8">
                 <li>
+           
                   <Link href="/ville" className={linkText}>
                 {tHeader("header.ville")}
                   </Link>
                 </li>
+              
                 <li>
                   <Link href="/culture" className={linkText}>
                    {tHeader("header.culture")}
