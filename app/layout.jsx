@@ -9,6 +9,25 @@ import MyContextProvider from "@/Provider/MyContextProvider"; // Ajouté
 export const metadata = {
   title: 'Discovr Algeria - Explorez l\'Algérie',
   description: 'Découvrez l\'Algérie, ses villes, sa culture, ses activités et plus encore. Le guide ultime pour explorer l\'Algérie.',
+  manifest: '/manifest.json',
+  themeColor: '#ffffff',
+  viewport: 'width=device-width, initial-scale=1, maximum-scale=1',
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: 'default',
+    title: 'Discovr Algeria',
+  },
+  formatDetection: {
+    telephone: false,
+  },
+  icons: {
+    icon: [
+      { url: '/icon512_rounded.png', sizes: '512x512', type: 'image/png' },
+    ],
+    apple: [
+      { url: '/icon512_rounded.png', sizes: '512x512', type: 'image/png' },
+    ],
+  },
 };
 
 const inter = Inter({ subsets: ["latin"] });
