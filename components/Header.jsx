@@ -7,6 +7,7 @@ import { CiFacebook, CiInstagram } from "react-icons/ci";
 import { FaTiktok, FaMoon } from "react-icons/fa";
 import { IoMdSunny } from "react-icons/io";
 import { useMyContext } from "@/Provider/MyContextProvider";
+import InstallPWA from "./InstallPWA";
 import "../i18next"; // ← ça lance la configuration i18n UNE FOIS dans tout le projet
 
 
@@ -80,12 +81,16 @@ export default function Header() {
             </div>
 
             {/* Social Icons (desktop only) */}
-            <div className={`hidden md:flex space-x-4 text-2xl ${iconColor}`}>
+            <div className={`hidden md:flex items-center space-x-4 text-2xl ${iconColor}`}>
               <CiFacebook className="hover:text-blue-600 transition" />
               <CiInstagram className="hover:text-pink-500 transition" />
               <FaTiktok className="hover:text-black transition" />
+              
+              {/* Bouton d'installation PWA */}
+              <InstallPWA />
+              
               <button
-                className="ml-auto mr-4 text-2xl cursor-pointer"
+                className="text-2xl cursor-pointer"
                 onClick={toggleTheme}
                 aria-label={theme === "light" ? "Activer le mode sombre" : "Activer le mode clair"}
               >
@@ -96,7 +101,7 @@ export default function Header() {
   id="lang-select"
   onChange={(e) => i18next.changeLanguage(e.target.value)}
   defaultValue={i18next.language}
-  className={`ml-2 px-0 py-0 rounded border-none outline-none transition
+  className={`px-0 py-0 rounded border-none outline-none transition
     ${theme === "light" ? "bg-blue-700 text-white" : "bg-gray-800 text-blue-200"}
     focus:ring-2 focus:ring-blue-400`}
   style={{ minWidth: 70, cursor: "pointer" }}
@@ -131,6 +136,11 @@ export default function Header() {
                   <Link href="/contact" className={mobileLink}>
                     Contact
                   </Link>
+                </li>
+                <li className="pt-2">
+                  <div className="flex justify-center">
+                    <InstallPWA />
+                  </div>
                 </li>
               </ul>
             </div>
